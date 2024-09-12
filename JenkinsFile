@@ -22,14 +22,14 @@ pipeline {
                 }
             }
         }
-       /*stage('Terraform Create first worksapce') {
+        stage('Terraform Create first workspace') {
             steps {
                 script {
-                    sh 'terraform workspace new first'
+                    sh 'terraform workspace new first || true'
                 }
             }
-        } */ 
-        stage('Terraform seclect first worksapce') {
+        }
+        stage('Terraform Select first workspace') {
             steps {
                 script {
                     sh 'terraform workspace select first'
@@ -43,21 +43,21 @@ pipeline {
                 }
             }
         }
-       /*stage('Terraform Create secound worksapce') {
+        stage('Terraform Create second workspace') {
             steps {
                 script {
-                    sh 'terraform workspace new secound'
-                }
-            }
-       } */
-        stage('Terraform seclect secound worksapce') {
-            steps {
-                script {
-                    sh 'terraform workspace select secound'
+                    sh 'terraform workspace new second || true' 
                 }
             }
         }
-        stage('Terraform Apply secound vars') {
+        stage('Terraform Select second workspace') {
+            steps {
+                script {
+                    sh 'terraform workspace select second'
+                }
+            }
+        }
+        stage('Terraform Apply second vars') {
             steps {
                 script {
                     sh 'terraform apply -var-file=vars.tfvars -auto-approve'
