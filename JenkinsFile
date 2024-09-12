@@ -5,22 +5,22 @@ pipeline {
         AWS_SECRET_ACCESS_KEY = credentials('aws-secret-access-key')  
     }
     stages {
+        stage('Checkout Creator Repository') {
+            steps {
+                git url: 'https://github.com/vKemo/s3Creator/', branch: 'main'
+            }
+        }
         stage('Checkout Vars Repository') {
             steps {
-    
                 dir('s3Vars') {
                     git url: 'https://github.com/vKemo/s3Vars/', branch: 'main'
                 }
             }
         }
-           stage('Checkout Creator Repository') {
-            steps {
-                git url: 'https://github.com/vKemo/s3Creator/', branch: 'main'
-            }
-        }
         stage('Terraform Init') {
             steps {
                 script {
+      
                     sh 'terraform init'
                 }
             }
@@ -28,7 +28,7 @@ pipeline {
         stage('Terraform Apply First Workspace') {
             steps {
                 script {
- 
+      
                     sh '''
                     terraform workspace new first || true
                     terraform workspace select first
@@ -40,7 +40,6 @@ pipeline {
         stage('Terraform Apply Second Workspace') {
             steps {
                 script {
-               
                     sh '''
                     terraform workspace new second || true
                     terraform workspace select second
