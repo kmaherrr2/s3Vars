@@ -21,10 +21,7 @@ pipeline {
             steps {
                 script {
       
-                    sh '''
-                    terraform init
-                    yes
-                    '''
+                    sh 'terraform init'
                 }
             }
         }
