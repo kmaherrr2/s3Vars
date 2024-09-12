@@ -5,26 +5,14 @@ pipeline {
         AWS_SECRET_ACCESS_KEY = credentials('aws-secret-access-key')  
     }
     stages {
-        stage('Checkout Repositories') {
-            parallel {
-                stage('Checkout creator repository') {
-                    steps {
-                        git url: 'https://github.com/vKemo/s3Creator/', branch: 'main'
-                    }
-                }
-                stage('Checkout vars repository') {
-                    steps {
-                        git url: 'https://github.com/vKemo/s3Vars/', branch: 'main'
-                    }
-                }
+        stage('Checkout creator repository') {
+            steps {
+                git url: 'https://github.com/vKemo/s3Creator/', branch: 'main'
             }
         }
-        stage('Debug Workspace') {
+        stage('Checkout vars repository') {
             steps {
-                script {
-                    sh 'ls -la' 
-                    sh 'find . -name "*.tfvars"'
-                }
+                git url: 'https://github.com/vKemo/s3Vars/', branch: 'main'
             }
         }
         stage('Terraform Init') {
@@ -51,14 +39,14 @@ pipeline {
         stage('Terraform Apply first vars') {
             steps {
                 script {
-                    sh 'terraform apply -var-file=path/to/terraform.tfvars -auto-approve'
+                    sh 'terraform apply -var-file=terraform.tfvars -auto-approve'
                 }
             }
         }
         stage('Terraform Create second workspace') {
             steps {
                 script {
-                    sh 'terraform workspace new second || true'
+                    sh 'terraform workspace new second || true' 
                 }
             }
         }
@@ -72,7 +60,7 @@ pipeline {
         stage('Terraform Apply second vars') {
             steps {
                 script {
-                    sh 'terraform apply -var-file=path/to/vars.tfvars -auto-approve'
+                    sh 'terraform apply -var-file=vars.tfvars -auto-approve'
                 }
             }
         }
