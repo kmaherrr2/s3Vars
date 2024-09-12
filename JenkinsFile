@@ -25,25 +25,13 @@ pipeline {
                 }
             }
         }
-        stage('Terraform Apply First Workspace') {
-            steps {
-                script {
-      
-                    sh '''
-                    terraform workspace new first || true
-                    terraform workspace select first
-                    terraform apply -var-file=s3Vars/vars.tfvars -auto-approve
-                    '''
-                }
-            }
-        }
-        stage('Terraform Apply Second Workspace') {
+        stage('Terraform Create Workspace and apply') {
             steps {
                 script {
                     sh '''
-                    terraform workspace new second || true
-                    terraform workspace select second
-                    terraform apply -var-file=s3Vars/terraform.tfvars -auto-approve
+                    terraform workspace new {dir} || true
+                    terraform workspace select {dir}
+                    terraform apply -var-file=s3Vars/{dir}/terraform.tfvars -auto-approve
                     '''
                 }
             }
