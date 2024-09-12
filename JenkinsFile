@@ -12,7 +12,6 @@ pipeline {
         }
         stage('Checkout Vars Repository') {
             steps {
-                
                     git url: 'https://github.com/vKemo/s3Vars/', branch: 'main'
             }
         }
