@@ -1,0 +1,2 @@
+bucket_name="mldsmkdskmdsml93928"
+versioning=true
