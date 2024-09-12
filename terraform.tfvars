@@ -1,2 +1,2 @@
-bucket_name = "my-example-bucket"
+bucket_name = "jenkins2918bucket"
 versioning  = true
