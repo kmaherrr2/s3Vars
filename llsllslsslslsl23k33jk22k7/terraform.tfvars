@@ -1,0 +1,2 @@
+bucket_name="llsllslsslslsl23k33jk22k7"
+versioning=true
