@@ -38,17 +38,17 @@ pipeline {
                 }
             }
         }
-      /*  stage('Terraform Create secound worksapce') {
+       stage('Terraform Create secound worksapce') {
             steps {
                 script {
-                    sh 'terraform workspace new first'
+                    sh 'terraform workspace new secound'
                 }
             }
-        } */
+        
         stage('Terraform seclect secound worksapce') {
             steps {
                 script {
-                    sh 'terraform workspace select first'
+                    sh 'terraform workspace select secound'
                 }
             }
         }
