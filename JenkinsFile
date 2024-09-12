@@ -20,7 +20,7 @@ pipeline {
         stage('Terraform Apply') {
             steps {
                 script {
-                    sh 'terraform apply -var-file=<(cat terraform.tfvars vars.tfvars)'
+                    sh 'terraform apply -var-file=<(cat terraform.tfvars vars.tfvars) -auto-approve'
                 }
             }
         }
