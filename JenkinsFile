@@ -17,10 +17,45 @@ pipeline {
                 }
             }
         }
-        stage('Terraform Apply') {
+        stage('Terraform Create first worksapce') {
+            steps {
+                script {
+                    sh 'terraform workspace new first'
+                }
+            }
+        }
+        stage('Terraform seclect first worksapce') {
+            steps {
+                script {
+                    sh 'terraform workspace select first'
+                }
+            }
+        }
+        stage('Terraform Apply first vars') {
             steps {
                 script {
                     sh 'terraform apply -var-file=terraform.tfvars -auto-approve'
+                }
+            }
+        }
+                stage('Terraform Create secound worksapce') {
+            steps {
+                script {
+                    sh 'terraform workspace new first'
+                }
+            }
+        }
+        stage('Terraform seclect secound worksapce') {
+            steps {
+                script {
+                    sh 'terraform workspace select first'
+                }
+            }
+        }
+        stage('Terraform Apply secound vars') {
+            steps {
+                script {
+                    sh 'terraform apply -var-file=vars.tfvars -auto-approve'
                 }
             }
         }
