@@ -1,0 +1,2 @@
+bucket_name="kareemtets1239720019jen"
+versioning=true
