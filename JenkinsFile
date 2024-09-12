@@ -29,9 +29,9 @@ pipeline {
             steps {
                 script {
                     sh '''
-                    terraform workspace new {dir} || true
-                    terraform workspace select {dir}
-                    terraform apply -var-file=s3Vars/{dir}/terraform.tfvars -auto-approve
+                    terraform workspace new - $DIR || true
+                    terraform workspace select - $DIR
+                    terraform apply -var-file=s3Vars/- $DIR/terraform.tfvars -auto-approve
                     '''
                 }
             }
