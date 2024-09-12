@@ -5,14 +5,9 @@ pipeline {
         AWS_SECRET_ACCESS_KEY = credentials('aws-secret-access-key')  
     }
     stages {
-        stage('Checkout Repository 1') {
+        stage('Checkout Repository') {
             steps {
                 git url: 'https://github.com/vKemo/s3Creator/', branch: 'main'
-            }
-        }
-        stage('Checkout Repository 2') {
-            steps {
-                git url: 'https://github.com/vKemo/s3Vars', branch: 'main'
             }
         }
         stage('Terraform Init') {
