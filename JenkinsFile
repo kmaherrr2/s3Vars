@@ -10,6 +10,11 @@ pipeline {
                 git url: 'https://github.com/vKemo/s3Creator/', branch: 'main'
             }
         }
+        stage('Checkout Repository 2') {
+            steps {
+                git url: 'https://github.com/vKemo/s3Vars/', branch: 'main'
+            }
+        }
         stage('Terraform Init') {
             steps {
                 script {
