@@ -1,2 +1,2 @@
-bucket_name = "jenkinsfirsts3bucket21"
+bucket_name = "jenkinsfirsts3bucket01"
 versioning = true
