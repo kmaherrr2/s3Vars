@@ -17,13 +17,13 @@ pipeline {
                 }
             }
         }
-       /* stage('Terraform Create first worksapce') {
+       stage('Terraform Create first worksapce') {
             steps {
                 script {
                     sh 'terraform workspace new first'
                 }
             }
-        } */
+        }
         stage('Terraform seclect first worksapce') {
             steps {
                 script {
