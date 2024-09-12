@@ -44,7 +44,7 @@ pipeline {
                     sh 'terraform workspace new secound'
                 }
             }
-        
+       }
         stage('Terraform seclect secound worksapce') {
             steps {
                 script {
