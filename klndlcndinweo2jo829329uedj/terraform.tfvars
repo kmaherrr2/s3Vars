@@ -1,2 +1,0 @@
-bucket_name="klndlcndinweo2jo829329uedj"
-versioning=true
