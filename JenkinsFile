@@ -22,13 +22,13 @@ pipeline {
                 }
             }
         }
-       stage('Terraform Create first worksapce') {
+       /*stage('Terraform Create first worksapce') {
             steps {
                 script {
                     sh 'terraform workspace new first'
                 }
             }
-        } 
+        } */ 
         stage('Terraform seclect first worksapce') {
             steps {
                 script {
@@ -43,13 +43,13 @@ pipeline {
                 }
             }
         }
-       stage('Terraform Create secound worksapce') {
+       /*stage('Terraform Create secound worksapce') {
             steps {
                 script {
                     sh 'terraform workspace new secound'
                 }
             }
-       } 
+       } */
         stage('Terraform seclect secound worksapce') {
             steps {
                 script {
