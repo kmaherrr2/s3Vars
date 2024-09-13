@@ -1,0 +1,2 @@
+bucket_name="kareem22392ujd9jqwk"
+versioning=true
