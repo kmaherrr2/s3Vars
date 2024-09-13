@@ -1,0 +1,2 @@
+bucket_name="basheerr392ujd9jqwk"
+versioning=true
