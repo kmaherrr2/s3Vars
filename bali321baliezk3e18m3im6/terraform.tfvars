@@ -1,0 +1,2 @@
+bucket_name="bali321baliezk3e18m3im6"
+versioning=true
